@@ -31,7 +31,7 @@ const Login = () => {
       
       if (res.data.success) {
         switchToggle()
-        nav('protectedpage');
+        nav('/protectedpage');
       }
       
     } catch (error) {
