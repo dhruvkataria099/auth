@@ -18,7 +18,7 @@ app.use(cors({
     origin: ["http://localhost:5173", "https://auth-rho-opal.vercel.app" ,"https://auth-3493.vercel.app"],  
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    // allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json())
