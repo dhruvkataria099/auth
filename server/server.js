@@ -14,6 +14,13 @@ app.use(cors({
     methods: ['GET',"POST", "PUT", "DELETE"],
     credentials: true
 }))
+app.use(cors({
+    origin: ["http://localhost:5173", "https://auth-rho-opal.vercel.app" ,"https://auth-3493.vercel.app"],  
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json())
 app.use(cookieParser())
 
@@ -67,12 +74,11 @@ app.post('/login' , async (req, res) => {
                 const obj = { useId : existingUser._id, userEmail: existingUser.email, userUsername: existingUser.username }
                
                 const token = jwt.sign(obj,"asdvfgqdfge3445454g5y")
-                
-                res.cookie('token',token,{
+                res.cookie("token", token, {
                     httpOnly: true,
-                    // secure: true,
-                    // sameSite: true
-                }).send({success: true, message: 'login success!'})
+                    secure: true, 
+                    sameSite: "none"
+                }).send({ success: true, message: "login success!" });
 
             }else{
                 res.send({success: false, message: 'password is wrong'});
