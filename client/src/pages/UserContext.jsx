@@ -9,7 +9,7 @@ const UserContext = ({children}) => {
   const [toggle, settoggle] = useState(null);
 
   const switchToggle = async () => {
-    const res = await axios.get(`${BASE_URL}current`)
+    const res = await axios.get(`${BASE_URL}current`,{ withCredentials: true })
     
     settoggle(res.data.status)
   }
