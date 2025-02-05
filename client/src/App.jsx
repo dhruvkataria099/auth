@@ -20,7 +20,9 @@ function App() {
     <Router>
       <Routes>
         {
-          toggle ? (
+          toggle === null ? (
+            <p>Loading...</p>
+          ) : toggle ? (
             <Route path="/protectedPage" element={<ProtectedFIle />} />
           ): (
             <>
