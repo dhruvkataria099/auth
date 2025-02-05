@@ -9,11 +9,11 @@ import cookieParser from 'cookie-parser'
 
 const app = express()
 
-app.use(cors({
-    origin: ["http://localhost:5173","https://auth-rho-opal.vercel.app","https://auth-3493.vercel.app"],
-    methods: ['GET',"POST", "PUT", "DELETE"],
-    credentials: true
-}))
+// app.use(cors({
+//     origin: ["http://localhost:5173","https://auth-rho-opal.vercel.app","https://auth-3493.vercel.app"],
+//     methods: ['GET',"POST", "PUT", "DELETE"],
+//     credentials: true
+// }))
 app.use(cors({
     origin: ["http://localhost:5173", "https://auth-rho-opal.vercel.app" ,"https://auth-3493.vercel.app"],  
     credentials: true,
@@ -108,7 +108,11 @@ app.get('/current', authToken,async (req,res) => {
 app.post('/logout',async (req,res) => {
     try {
         
-        res.clearCookie('token').send({success: true, message: 'logout succ!'})
+        res.clearCookie('token',{
+            httpOnly: true,
+            secure: true, 
+            sameSite: "none"
+        }).send({success: true, message: 'logout succ!'})
 
     } catch (error) {
         console.log(error.message);
