@@ -10,7 +10,7 @@ import cookieParser from 'cookie-parser'
 const app = express()
 
 app.use(cors({
-    origin: "auth-3493-arp3hiwvf-dhruvs-projects-8b6f1d48.vercel.app",
+    origin: ["auth-3493-arp3hiwvf-dhruvs-projects-8b6f1d48.vercel.app","https://auth-3493.vercel.app"],
     methods: ['GET',"POST", "PUT", "DELETE"],
     credentials: true
 }))
