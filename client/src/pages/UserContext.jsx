@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {createContext, useEffect, useState} from 'react'
+import { BASE_URL } from '../info';
 
 export const UserCon = createContext()
 
@@ -8,7 +9,7 @@ const UserContext = ({children}) => {
   const [toggle, settoggle] = useState(null);
 
   const switchToggle = async () => {
-    const res = await axios.get('http://localhost:8080/current')
+    const res = await axios.get(`${BASE_URL}current`)
     
     settoggle(res.data.status)
   }

@@ -40,7 +40,7 @@ const ProtectedFIle = () => {
     
       const handleAdd = async () => {
         try {
-          const res = await axios.post(`${BASE_URL}/postdata`,formData)
+          const res = await axios.post(`${BASE_URL}postdata`,formData)
           // fetchData()
           setFormData({
             username: "",
@@ -53,7 +53,7 @@ const ProtectedFIle = () => {
       }
       const handleDelete = async (index) => {
         try {
-          const res = await axios.delete(`${BASE_URL}/delete/${index}`,formData)
+          const res = await axios.delete(`${BASE_URL}delete/${index}`,formData)
     
           // fetchData()
         } catch (error) {
@@ -63,7 +63,7 @@ const ProtectedFIle = () => {
     
       const handleUpdate = async () => {
         try {
-          const res = await axios.put(`${BASE_URL}/update/${gId}`,formData)
+          const res = await axios.put(`${BASE_URL}update/${gId}`,formData)
          
           settoggle(false)
           setFormData({
