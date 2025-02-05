@@ -27,7 +27,7 @@ const Register = () => {
 
   const Sub = async () => {
     try {
-        const res = await axios.post('http://localhost:8080/register',formData)
+        const res = await axios.post(`${BASE_URL}register`,formData)
         console.log(res.data.message);
         
         if (res.data.status == 200) {

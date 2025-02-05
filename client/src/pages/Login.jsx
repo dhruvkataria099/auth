@@ -25,7 +25,7 @@ const Login = () => {
 
   const Sub = async () => {
     try {
-      const res = await axios.post('http://localhost:8080/login',formData)
+      const res = await axios.post(`${BASE_URL}login`,formData)
       console.log(res.data.success);
       
       if (res.data.success) {

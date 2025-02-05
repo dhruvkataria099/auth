@@ -96,7 +96,7 @@ const ProtectedFIle = () => {
 
       const handleLogout = async () => {
         try {
-          const res = await axios.post('http://localhost:8080/logout')
+          const res = await axios.post(`${BASE_URL}logout`)
           if (res.data.success) {
             switchToggle()
             nav('/')
