@@ -21,17 +21,19 @@ function App() {
       <Routes>
         {
           toggle === null ? (
-            <p>Loading...</p>
-          ) : toggle ? (
-            <Route path="/protectedPage" element={<ProtectedFIle />} />
-          ): (
-            <>
-              <Route path="/" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          )
-        }
-        <Route path="/*" element={<p>404 page not found</p>} />
+              <React.Fragment>
+                <Route path="*" element={<p>Loading...</p>} />
+              </React.Fragment>
+            ) : toggle ? (
+              <Route path="/protectedPage" element={<ProtectedFIle />} />
+            ) : (
+              <React.Fragment>
+                <Route path="/" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </React.Fragment>
+            )
+          }
+          <Route path="/*" element={<p>404 page not found</p>} />
       </Routes>
     </Router>
     </>
