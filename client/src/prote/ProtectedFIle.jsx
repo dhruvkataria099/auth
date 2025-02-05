@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UserCon } from "../pages/UserContext";
+import { BASE_URL } from '../info';
 
 const ProtectedFIle = () => {
 
@@ -18,7 +19,7 @@ const ProtectedFIle = () => {
     
       // const fetchData = async () => {
       //   try {
-      //     const res = await axios.get(`http://localhost:8000/j`)
+      //     const res = await axios.get(`${BASE_URL}/j`)
       //     console.log(res);
       //     setarr(res?.data?.data || [])
       //   } catch (error) {
@@ -39,7 +40,7 @@ const ProtectedFIle = () => {
     
       const handleAdd = async () => {
         try {
-          const res = await axios.post(`http://localhost:8000/postdata`,formData)
+          const res = await axios.post(`${BASE_URL}/postdata`,formData)
           // fetchData()
           setFormData({
             username: "",
@@ -52,7 +53,7 @@ const ProtectedFIle = () => {
       }
       const handleDelete = async (index) => {
         try {
-          const res = await axios.delete(`http://localhost:8000/delete/${index}`,formData)
+          const res = await axios.delete(`${BASE_URL}/delete/${index}`,formData)
     
           // fetchData()
         } catch (error) {
@@ -62,7 +63,7 @@ const ProtectedFIle = () => {
     
       const handleUpdate = async () => {
         try {
-          const res = await axios.put(`http://localhost:8000/update/${gId}`,formData)
+          const res = await axios.put(`${BASE_URL}/update/${gId}`,formData)
          
           settoggle(false)
           setFormData({

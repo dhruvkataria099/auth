@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useMemo, useState } from 'react'
+import { BASE_URL } from './info'
 
 const FileUploads = ({formData}) => {
 
@@ -26,7 +27,7 @@ const FileUploads = ({formData}) => {
                 fileData.append("files", file)
             })
 
-            const res = await axios.post('http://localhost:8000/',fileData)
+            const res = await axios.post(`${BASE_URL}/`,fileData)
             
             fetchData()
             console.log(res);
@@ -39,7 +40,7 @@ const FileUploads = ({formData}) => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/getfiles')
+            const res = await axios.get('${BASE_URL}/getfiles')
             console.log(res.data,'kkkkkkk');
             
             setImage(res.data.data);   
@@ -67,7 +68,7 @@ const FileUploads = ({formData}) => {
         {
             images.map(info => (
                 <>
-                    <img src={`http://localhost:8000/u/${info}`} className='w-10 h-10' alt="" />
+                    <img src={`${BASE_URL}/u/${info}`} className='w-10 h-10' alt="" />
                 </>
             ))
         }
