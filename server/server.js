@@ -109,6 +109,15 @@ app.post('/logout',async (req,res) => {
         
     }
 })
+app.get('/',async (req,res) => {
+    try {
+        
+        res.send({message: 'server is live!'})
+    } catch (error) {
+        console.log(error.message);
+        
+    }
+})
 
 app.listen(8080, () => {
     console.log('server is running!!')
